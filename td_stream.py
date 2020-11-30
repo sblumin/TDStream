@@ -36,5 +36,9 @@ td_streamer.write_behavior(file_path='level_one_quotes_data.csv')
 options_fields = [0, 1, 2, 3, 4, 5, 8, 24]
 td_streamer.level_one_quotes(symbols=sp_list, fields=options_fields)
 
+# Subscribe to timesale data
+timesale_fields = [0, 1, 2, 3, 4]
+td_streamer.timesale(service='TIMESALE_EQUITY', symbols=sp_list, fields=timesale_fields)
+
 # Stream
 td_streamer.stream()
