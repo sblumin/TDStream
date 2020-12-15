@@ -21,9 +21,10 @@ for sym in f:
 load_dotenv()
 key = os.environ.get('CONSUMER_KEY')
 url = os.environ.get('CALLBACK_URL')
+credentials_path = 'C:\\Users\\austi\\credentials\\td_state.json'
 
 # Instantiate TDClient and login
-td_session = TDClient(client_id=key, redirect_uri=url)
+td_session = TDClient(client_id=key, redirect_uri=url, credentials_path=credentials_path)
 td_session.login()
 
 # Set up streaming
