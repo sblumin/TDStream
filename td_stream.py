@@ -34,12 +34,16 @@ td_streamer = td_session.create_streaming_session()
 td_streamer.write_behavior(file_path='level_one_quotes_data.csv')
 
 # Subscribe to level one quotes
-options_fields = [0, 1, 2, 3, 4, 5, 8, 24]
-td_streamer.level_one_quotes(symbols=sp_list, fields=options_fields)
+quotes_fields = [0, 1, 2, 3, 4, 5, 8, 24]
+td_streamer.level_one_quotes(symbols=sp_list, fields=quotes_fields)
 
 # Subscribe to timesale data
 timesale_fields = [0, 1, 2, 3, 4]
 td_streamer.timesale(service='TIMESALE_EQUITY', symbols=sp_list, fields=timesale_fields)
+
+# Subscribe to level 2 quotes
+quotes_2_fields = [0, 1, 2, 3]
+td_streamer.level_two_quotes(symbols=sp_list, fields=quotes_2_fields)
 
 # Stream
 td_streamer.stream()
